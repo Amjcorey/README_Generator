@@ -1,8 +1,8 @@
 // Packages needed for this application
-const inquier = require("inquirer");
+const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 const fs = require("fs");
-const { default: Choices } = require("inquirer/lib/objects/choices");
+// const { default: Choices } = require("inquirer/lib/objects/choices");
 
 // Create an array of questions for user input
 const questions = [
@@ -14,39 +14,39 @@ const questions = [
         {
           type: 'input',
           name: 'description',
-          message: 'Include a description',
+          message: 'What is the project description?',
         },
         {
           type: 'input',
           name: 'installation',
-          message: 'Include the installation instructions',
+          message: 'Plesae include any installation instructions',
         },
         {
           type: 'input',
           name: 'usage',
-          message: 'Include the usage information of this project',
+          message: 'Please enter the usage of this repository',
         },
         {
           type: 'input',
           name: 'Contribution',
-          message: 'Include the contribution instructions',
+          message: 'Please enter the contribution instructions',
         },
         //string
         {
             type: 'list',
             name: 'license',
-            message: 'Please select a license:',
+            message: 'Please select a repository license:',
             choices: ["Apache 2.0", "BSD 3", "GPL 3.0", "None"],
           }, 
           {
             type: 'input',
             name: 'github',
-            message: 'Please enter your GitHub username',
+            message: 'Please enter your GitHub username:',
           },
           {
             type: 'input',
             name: 'email',
-            message: 'Please enter your email address',
+            message: 'Please enter your email address:',
           }
 ];
 
@@ -59,9 +59,11 @@ function writeToFile(fileName, data) {
 
 // Function to initialize app
 function init() {
-    inquier.createPromptModule(question).then((response) => {
-        writeToFile("README.md", generateMarkdown(response));
-    });
+  inquirer.prompt(questions).then((answers) => {
+    console.log(answers);
+    mdFile = generateMarkdown(answers);
+    writeToFile('README.md',mdFile);
+   });
 }
 
 // Function call to initialize app
