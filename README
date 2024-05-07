@@ -1,5 +1,6 @@
 # Description
-This is a README generator that quickly and easily generates a README file by using a command-line application to generate one. This allows the project creator to devote more time working on the project.
+This application was created using Node.js to generate professional README.md docs from the command line and aims to cut down on the time developers need to create their README.md files. This way more of their time can be devoted to maintaining, and updating their applications. By the use of inquirer (node package manager), this application takes the user through a series of prompts, asking them their name, title of their application, application description, installation instructions, usage information, contribution guidelines, test instructions, what type of license they want their application to be covered under, as well as their GitHub handle, and primary email. Once all prompts are answered, the application generates a professional README.md markdown file with the user's inputs. 
+This is the first application I created using a back-end technology (Node.js). I have greater insight on how back-end developers problem-solve without using a user interface or live browser. 
 
 # DEMO 
 https://drive.google.com/file/d/1vU2yEWQrWznjVf0laJhp-O0gomRLKEnL/view 
